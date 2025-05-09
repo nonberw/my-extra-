@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications - My Extra Lab</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../attached_assets/photo_2025-01-09_16-06-18.jpg" alt="MEL Logo" class="logo-img">
+                <span>My Extra Lab</span>
+            </a>
+        </div>
+    </header>
+    <main class="events-page">
+        <h1>Заявки</h1>
+        <div id="applications-list"></div>
+    </main>
+    <script>
+        async function loadApplications() {
+            try {
+                const response = await fetch('/api/applications');
+                const data = await response.json();
+                const list = document.getElementById('applications-list');
+                list.innerHTML = data.applications.map(app => `
+                    <div class="application-card">
+                        <h3>${app.name}</h3>
+                        <p>Тип: ${app.form_type}</p>
+                        <p>Город: ${app.city}</p>
+                        <p>Школа: ${app.school}</p>
+                        <p>Email: ${app.email}</p>
+                        <p>WhatsApp: ${app.whatsapp}</p>
+                        <p>Дата: ${new Date(app.created_at).toLocaleString()}</p>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        loadApplications();
+    </script>
+</body>
+</html>

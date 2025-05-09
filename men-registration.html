@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEN Registration - My Extra Lab</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../attached_assets/photo_2025-01-09_16-06-18.jpg" alt="MEL Logo" class="logo-img">
+                <span>My Extra Lab</span>
+            </a>
+        </div>
+    </header>
+    <main class="events-page">
+        <h1>Регистрация в My Extra Network</h1>
+        <form class="registration-form" onsubmit="return handleRegistration(event)" data-form-type="men">
+            <input type="text" placeholder="Имя, Фамилия" required>
+            <input type="text" placeholder="Город" required>
+            <input type="text" placeholder="Школа/Университет" required>
+            <input type="text" placeholder="Класс/Курс" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="WhatsApp" required>
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>
